@@ -17,13 +17,17 @@ interface Todo {
 const App: React.FC = () => {
   const [todos, setTodos] = useState<Todo[]>([]);
   const [title, setTitle] = useState("");
+  const [loading, setLoading] = useState<boolean>(false);
 
   const fetchTodos = useCallback(async () => {
+    setLoading(true);
     try {
       const response = await getTodos();
       setTodos(response.data);
     } catch (error) {
       console.error("Failed to fetch todos:", error);
+    } finally {
+      setLoading(false);
     }
   }, []);
 
@@ -95,12 +99,16 @@ const App: React.FC = () => {
         />
         <button onClick={handleAddTodo}>추가</button>
       </div>
-      <TodoList
-        todos={todos}
-        onToggleComplete={handleToggleComplete}
-        onDelete={handleDeleteTodo}
-        onUpdate={handleUpdateTodo}
-      />
+      {loading ? (
+        <div className="loading">Loading...</div>
+      ) : (
+        <TodoList
+          todos={todos}
+          onToggleComplete={handleToggleComplete}
+          onDelete={handleDeleteTodo}
+          onUpdate={handleUpdateTodo}
+        />
+      )}
     </div>
   );
 };
