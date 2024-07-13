@@ -7,7 +7,7 @@
 <br>
 
 ## 🚀 Demo 링크
-https://ts-todoapp.vercel.app/
+https://ts-todoapp-git-master-kyuseok1s-projects.vercel.app/
 
 <br>
 <br>
