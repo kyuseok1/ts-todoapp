@@ -6,9 +6,9 @@
 
 <br>
 
-## 🚀 Demo 링크
+## 🚀 Demo 링크 / server 코드
 https://ts-todoapp-git-master-kyuseok1s-projects.vercel.app/
-
+https://github.com/kyuseok1/ts-todoapp-backend
 <br>
 <br>
 
