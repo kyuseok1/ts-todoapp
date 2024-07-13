@@ -6,7 +6,6 @@ import {
   deleteTodo,
 } from "./services/todoService";
 import TodoList from "./components/TodoList";
-import "./App.css";
 
 interface Todo {
   _id: string;
@@ -88,19 +87,27 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="app-container">
-      <h1>Todo App</h1>
-      <div className="todo-input">
+    <div className="flex flex-col items-center mx-auto max-w-2xl p-5 font-sans bg-gradient-to-r from-blue-100 to-blue-300 min-h-screen shadow-lg rounded-lg">
+      <h1 className="text-4xl font-bold mb-8 text-gray-800 drop-shadow-md">
+        Todo App
+      </h1>
+      <div className="flex w-full mb-8">
         <input
           type="text"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
           placeholder="Add a new todo"
+          className="flex-1 p-3 text-lg border border-gray-300 rounded-l-lg shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
-        <button onClick={handleAddTodo}>추가</button>
+        <button
+          onClick={handleAddTodo}
+          className="ml-0 p-3 text-lg bg-blue-500 text-white rounded-r-lg shadow-md hover:bg-blue-600 transition duration-300"
+        >
+          추가
+        </button>
       </div>
       {loading ? (
-        <div className="loading">Loading...</div>
+        <div className="text-lg text-gray-500">Loading...</div>
       ) : (
         <TodoList
           todos={todos}

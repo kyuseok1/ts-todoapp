@@ -19,17 +19,19 @@ const TodoList: React.FC<TodoListProps> = ({
   onUpdate,
 }) => {
   return (
-    <ul className="todo-list">
-      {todos.map((todo) => (
-        <TodoItem
-          key={todo._id}
-          todo={todo}
-          onToggleComplete={onToggleComplete}
-          onDelete={onDelete}
-          onUpdate={onUpdate}
-        />
-      ))}
-    </ul>
+    <div className="w-1/2 mx-auto">
+      <ul className="todo-list space-y-2">
+        {todos.map((todo) => (
+          <TodoItem
+            key={todo._id}
+            todo={todo}
+            onToggleComplete={onToggleComplete}
+            onDelete={onDelete}
+            onUpdate={onUpdate}
+          />
+        ))}
+      </ul>
+    </div>
   );
 };
 
